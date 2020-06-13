@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <link rel="stylesheet" type="text/css" href="./assets/css/stye.css">
+  <script>
+    /* Ao carregar a página... */
+    document.addEventListener("DOMContentLoaded", () => {
+      /* VOCE DEVE FAZER O CÓDIGO AQUI... */
+      /* Utilize as funções de baixo */
+      /* Uma faz mostrar a parte de cima da imagem e a outra a parte de baixo */
+      /* Os argumentos são, respectivamente, WIDTH  e a LEFT MARGIN da imagem*/
+      // addParteDeCima("500px", "0px")
+      // addParteDeBaixo("500px", "0px")
+
+      // Executa a função que mostra tudo
+      mostraTudo()
+    });
+
+    let mostraTudo = () => {
+      // Declara a variavel de auxilio
+      let numeroMaxDeImagens = 3
+
+      // Mostra as imagens de cima
+      for (let i = 0; i < numeroMaxDeImagens; i++) {
+        let marginLeft = (100 * i)
+        addParteDeCima("500px", `${marginLeft}px`)
+      }
+
+      // Mostra as imagens de baixo
+      for (let i = (numeroMaxDeImagens - 1); i >= 0 ; i--) {
+        let marginLeft = (100 * i)
+        addParteDeBaixo("500px", `${marginLeft}px`)
+      }
+    }
+
+
+    /* Funções auxiliares */
+    let addParteDeCima = (width = "500px", marginLeft = "0px") => adicionarNaDiv("./assets/imgs/parteDeCima.jpg", width, marginLeft)
+    let addParteDeBaixo = (width = "500px", marginLeft = "0px") => adicionarNaDiv("./assets/imgs/parteDeBaixo.jpg", width, marginLeft )
+    let adicionarNaDiv = (src, width, marginLeft) => {
+      let imgNode = document.createElement("img")
+      imgNode.src = src
+      imgNode.style.width = width
+      imgNode.style.marginLeft = marginLeft
+      document.getElementById("div").append(imgNode)
+    };
+
+  </script>
+</head>
+<body>
+    <div id="div">
+
+    </div>
+</body>
+</html>
